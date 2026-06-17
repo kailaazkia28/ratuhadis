@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Tim Penyusun</title>
+    <style>
+        body { 
+            padding: 40px; 
+            max-width: 850px; 
+            margin: 0 auto; 
+            background-color: #fff4f7; 
+            color: #4a1525; 
+            line-height: 1.8; 
+            font-family: 'Segoe UI', Roboto, sans-serif; 
+        }
+        
+        h1 { 
+            color: #901a38; 
+            border-bottom: 3px solid #ffb3c6; 
+            padding-bottom: 10px; 
+            font-size: 2rem; 
+            text-align: center; 
+            margin-bottom: 35px;
+            font-weight: bold;
+        }
+
+        /* Desain Kartu Berdasarkan Tema Gambar Kedua */
+        .profile-card {
+            background-color: #ffdae3;
+            padding: 35px;
+            border-radius: 20px;
+            border: 2px solid #ffb3c6;
+            margin-bottom: 35px;
+            box-shadow: 0 4px 15px rgba(144, 26, 56, 0.05);
+        }
+
+        .profile-card h2 {
+            color: #901a38;
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #ffb3c6;
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        /* Layout Grid untuk Foto dan Teks Utama */
+        .profile-grid {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 25px;
+            align-items: flex-start;
+        }
+
+        /* Pengaturan Frame Foto */
+        .profile-img-container {
+            flex-shrink: 0;
+            width: 160px;
+            border: 4px solid #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            background-color: #fff;
+        }
+
+        .profile-img {
+            width: 100%;
+            display: block;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .profile-bio {
+            flex-grow: 1;
+            text-align: justify;
+            font-size: 1rem;
+        }
+
+        .profile-bio p {
+            margin-bottom: 15px;
+        }
+
+        /* Detail Informasi Tambahan */
+        .details-section {
+            background-color: rgba(255, 255, 255, 0.6);
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+            border: 1px dashed #b02a4e;
+        }
+
+        .details-section h3 {
+            color: #b02a4e;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .info-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 15px;
+        }
+
+        .info-list li {
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .info-list strong {
+            color: #901a38;
+        }
+
+        .edu-list {
+            margin-left: 20px;
+        }
+
+        .edu-list li {
+            margin-bottom: 6px;
+            font-size: 0.95rem;
+            text-align: justify;
+        }
+
+        /* Responsive jika dibuka di Handphone */
+        @media (max-width: 600px) {
+            .profile-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+            .profile-img-container {
+                width: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Profil Tim Penyusun</h1>
+
+    <!-- ==================== PROFIL PENULIS ==================== -->
+    <div class="profile-card">
+        <h2>Profil Penulis</h2>
+        
+        <div class="profile-grid">
+            <div class="profile-img-container">
+                <!-- Pastikan menaruh foto penulis dengan nama fahrul.jpg di folder yang sama -->
+                <img src="fahrul.jpg" alt="Muhammad Fahrul Ihsan" class="profile-img">
+            </div>
+            <div class="profile-bio">
+                <p><strong>Muhammad Fahrul Ihsan</strong> (NIM: 241320065) merupakan mahasiswa yang menekuni bidang Ilmu Al-Qur’an dan Tafsir, dengan ketertarikan pada kajian hadis tematik (maudhu’i) serta penerapannya dalam kehidupan sosial dan kemasyarakatan. Fokus kajian penulis diarahkan pada pemahaman hadis Nabi Muhammad SAW sebagai sumber nilai etika, akhlak, dan pedoman sosial yang relevan dalam kehidupan masyarakat kontemporer.</p>
+                <p>Karya berjudul “Penerapan Studi Hadis Tematik di Bidang Sosial dan Kemasyarakatan” disusun sebagai bentuk kontribusi akademik dalam pengembangan studi hadis, khususnya dalam mengkaji dimensi sosial ajaran Islam. Penulis meyakini bahwa hadis tidak hanya berfungsi sebagai landasan ibadah ritual, tetapi juga sebagai pedoman dalam membangun tatanan sosial yang harmonis, adil, dan berkeadaban.</p>
+            </div>
+        </div>
+
+        <div class="details-section">
+            <h3>Biodata & Kontak</h3>
+            <ul class="info-list">
+                <li><strong>Tempat Tanggal Lahir:</strong> Serang, 11 Juni 2006</li>
+                <li><strong>Alamat:</strong> Desa Harjatani, Blok Cigodag Jangkaran, RT 003/RW 001, Kecamatan Kramatwatu, Kabupaten Serang, Provinsi Banten</li>
+                <li><strong>Instansi:</strong> Universitas Islam Negeri Sultan Maulana Hasanuddin Banten</li>
+                <li><strong>Fakultas / Prodi:</strong> Ushuluddin dan Adab / Ilmu Al-Qur'an dan Tafsir</li>
+            </ul>
+
+            <h3>Riwayat Pendidikan</h3>
+            <ul class="edu-list">
+                <li>SD Negeri Serdang 2 (2012-2018)</li>
+                <li>SMP Al-Bantany (2018-2021)</li>
+                <li>SMA Al-Bantany (2021-2024)</li>
+                <li>Mahasiswa Program Studi Ilmu Al-Qur’an dan Tafsir, Fakultas Ushuluddin dan Adab, Universitas Islam Negeri Sultan Maulana Hasanuddin Banten.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ==================== PROFIL EDITOR ==================== -->
+    <div class="profile-card">
+        <h2>Profil Editor</h2>
+        
+        <div class="profile-grid">
+            <div class="profile-img-container">
+                <!-- Pastikan menaruh foto editor dengan nama kaila.jpg di folder yang sama -->
+                <img src="kaila.jpg" alt="Ratu Kaila Azkia" class="profile-img">
+            </div>
+            <div class="profile-bio">
+                <p><strong>Ratu Kaila Azkia</strong> adalah seorang mahasiswa kelahiran <strong>Tangerang, 28 September 2007</strong>. Saat ini, ia sedang menempuh pendidikannya sebagai <strong>mahasiswa aktif di Program Studi Ilmu Hadis di UIN Sultan Maulana Hasanuddin Banten</strong>.</p>
+                <p>Di samping fokus kuliahnya di bidang hadis, Ratu punya ketertarikan personal yang cukup besar pada <strong>Sastra Indonesia</strong>. Ketertarikannya inilah yang membuat ia sangat menghargai sebuah tulisan yang dibuat dengan bagus dan rapi. Bagi Ratu, membaca atau menyunting tulisan yang punya kualitas bagus itu punya kepuasan tersendiri—kurang lebih sama rasanya seperti menikmati semangkuk mie ayam favoritnya.</p>
+            </div>
+        </div>
+
+        <div class="details-section">
+            <h3>Hal-Hal Favorit & Santai</h3>
+            <ul class="info-list">
+                <li><strong>Studi:</strong> Ilmu Hadis (UIN SMH Banten).</li>
+                <li><strong>Minat:</strong> Membaca dan mengamati perkembangan Sastra Indonesia.</li>
+                <li><strong>Mood Booster:</strong> Sangat suka makan <strong>mie ayam</strong> dan tidak bisa jauh-jauh dari <strong>es batu</strong>.</li>
+                <li><strong>Fokus Bidang:</strong> Pengembangan Konten Pendidikan dan Media Digital Interaktif.</li>
+            </ul>
+
+            <h3>Riwayat Pendidikan</h3>
+            <ul class="edu-list">
+                <li>SD negeri tamansari 01 (2013-2019)</li>
+                <li>Mts al-ihsan (2019-2022)</li>
+                <li>Ma al-ihsan (2022-2025)</li>
+                <li>Mahasiswa program studi ilmu hadis fakultas ushuluddin dan adab universitas sultan maulana hasanuddin banten.</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>

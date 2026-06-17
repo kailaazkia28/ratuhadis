@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Studi Hadis Digital - Ratu Kaila Azkia</title>
+    <style>
+        :root {
+            --bg-main: #fff4f7;
+            --bg-sidebar: #ffdae3;
+            --border-color: #ffb3c6;
+            --text-maroon: #901a38;
+            --text-dark: #4a1525;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { display: flex; height: 100vh; background-color: var(--bg-main); color: var(--text-dark); overflow: hidden; }
+
+        /* Mobile Toggle */
+        .mobile-toggle { display: none; position: fixed; top: 12px; left: 12px; background-color: var(--text-maroon); color: white; border: none; padding: 10px 16px; border-radius: 8px; z-index: 9999; cursor: pointer; }
+
+        /* Sidebar */
+        .sidebar { width: 320px; background-color: var(--bg-sidebar); border-right: 3px solid var(--border-color); display: flex; flex-direction: column; transition: transform 0.3s ease; }
+        .sidebar-header { padding: 20px; background-color: var(--text-maroon); color: white; }
+        .menu-container { flex: 1; overflow-y: auto; padding: 15px; }
+
+        /* Menu Styling */
+        .portal-section-title { font-size: 0.9rem; font-weight: bold; color: white; background-color: var(--text-maroon); padding: 6px 10px; border-radius: 4px; text-align: center; margin: 15px 0 8px 0; text-transform: uppercase; }
+        .menu-section-title { font-size: 0.8rem; font-weight: bold; color: var(--text-maroon); margin: 10px 0 4px 5px; border-bottom: 1px solid var(--border-color); }
+        .dropdown-btn { width: 100%; text-align: left; background-color: white; border: 1px solid var(--border-color); padding: 10px; font-weight: 700; border-radius: 6px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+        .dropdown-btn::after { content: '▼'; font-size: 0.65rem; transition: transform 0.2s; }
+        .dropdown-btn.open::after { transform: rotate(-180deg); }
+        .sub-sub-menu { max-height: 0; overflow: hidden; transition: max-height 0.25s ease-out; padding-left: 10px; }
+        .menu-link { display: block; background-color: rgba(255, 255, 255, 0.45); padding: 8px 12px; font-size: 0.82rem; font-weight: 600; border-radius: 4px; border-left: 3px solid var(--border-color); cursor: pointer; text-decoration: none; color: var(--text-dark); margin-top: 3px; }
+        .menu-link:hover, .menu-link.active { background-color: var(--text-maroon); color: white; }
+
+        .content-frame-container { flex: 1; height: 100%; }
+        iframe { width: 100%; height: 100%; border: none; }
+
+        @media (max-width: 768px) {
+            .mobile-toggle { display: block; }
+            .sidebar { position: fixed; transform: translateX(-100%); width: 280px; }
+            .sidebar.open { transform: translateX(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <button class="mobile-toggle" onclick="toggleSidebar()">☰ MENU PORTAL</button>
+
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>Studi Hadis Digital</h2>
+            <div style="font-size: 0.85rem;">Ratu Kaila Azkia // 251305016</div>
+        </div>
+
+        <div class="menu-container">
+            <!-- SECTION 1: EBOOK -->
+            <div class="portal-section-title">MAIN E-BOOK</div>
+            <button class="dropdown-btn" onclick="toggleDropdown(this)">Daftar Isi E-Book</button>
+            <div class="sub-sub-menu">
+                <a class="menu-link" onclick="loadPage('cover.html', this)">Cover</a>
+                <a class="menu-link" onclick="loadPage('bab1.html', this)">Bab 1-5</a>
+            </div>
+
+            <!-- SECTION 2: WEBSITE -->
+            <div class="portal-section-title">REVIEW TUGAS DIGITAL</div>
+            <div class="menu-section-title">2. WEBSITE HADIST</div>
+            <button class="dropdown-btn" onclick="toggleDropdown(this)">Website Hadis.my</button>
+            <div class="sub-sub-menu"><a class="menu-link" onclick="loadPage('review3.html', this)">Detail Review</a></div>
+            
+            <button class="dropdown-btn" onclick="toggleDropdown(this)">Website Arina Hadis</button>
+            <div class="sub-sub-menu"><a class="menu-link" onclick="loadPage('review2.html', this)">Detail Review</a></div>
+            
+            <button class="dropdown-btn" onclick="toggleDropdown(this)">Website Muhamad Basuki</button>
+            <div class="sub-sub-menu"><a class="menu-link" onclick="loadPage('review4.html', this)">Detail Review</a></div>
+
+            <!-- SECTION 3: ANDROID & DESKTOP -->
+            <div class="menu-section-title">3. ANDROID & DESKTOP</div>
+            <button class="dropdown-btn" onclick="toggleDropdown(this)">Review Aplikasi Android</button>
+            <div class="sub-sub-menu"><a class="menu-link" onclick="loadPage('review5.html', this)">Antarmuka Sistem & Fitur</a></div>
+            
+            <button class="dropdown-btn" onclick="toggleDropdown(this)">Review Aplikasi Desktop</button>
+            <div class="sub-sub-menu"><a class="menu-link" onclick="loadPage('review6.html', this)">Review Mode Desktop & UX</a></div>
+        </div>
+    </div>
+
+    <div class="content-frame-container">
+        <iframe src="cover.html" id="content-frame"></iframe>
+    </div>
+
+    <script>
+        function toggleDropdown(btn) {
+            document.querySelectorAll('.dropdown-btn').forEach(otherBtn => {
+                if (otherBtn !== btn) {
+                    otherBtn.classList.remove('open');
+                    otherBtn.nextElementSibling.style.maxHeight = '0px';
+                }
+            });
+            btn.classList.toggle('open');
+            const menu = btn.nextElementSibling;
+            menu.style.maxHeight = btn.classList.contains('open') ? menu.scrollHeight + "px" : '0px';
+        }
+
+        function loadPage(pageUrl, element) {
+            document.getElementById('content-frame').src = pageUrl;
+            document.querySelectorAll('.menu-link').forEach(link => link.classList.remove('active'));
+            element.classList.add('active');
+            if (window.innerWidth <= 768) document.getElementById('sidebar').classList.remove('open');
+        }
+
+        function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); }
+    </script>
+</body>
+</html>
